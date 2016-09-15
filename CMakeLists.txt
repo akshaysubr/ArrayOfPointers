@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(PadeOps)
+project(ArrayOfPointers)
 
 enable_language(Fortran)
 
@@ -36,6 +36,9 @@ elseif ( CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
         set(CMAKE_Fortran_FLAGS "-Og -g -pg -llapack -ffree-form -ffree-line-length-none -fcheck=all -fbounds-check -ffpe-trap=zero,overflow,underflow -Wall -Wconversion -Wextra -Waliasing -Wsurprising -fbacktrace")
     endif()
 endif()
+
+# Enable testing
+enable_testing()
 
 # Add source file directories
 add_subdirectory(src)
