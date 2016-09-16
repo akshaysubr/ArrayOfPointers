@@ -1,0 +1,27 @@
+language: generic
+
+sudo: required
+
+dist: trusty
+os:
+  - linux
+
+env:
+  - MPI_IMPL=mpich
+
+before_install:
+  - sh ./travis/install-mpi.sh $MPI_IMPL
+
+install:
+  - |
+    if [[ ! -d "$HOME/.local/bin" ]]; then
+      mkdir "$HOME/.local/bin"
+    fi
+  - export PATH="$HOME/OpenMPI/bin:$PATH"
+  - export CC=mpicc
+  - export CXX=mpicxx
+  - export FC=mpif90
+  - cd build; cmake ..; make
+
+script:
+  - make test
