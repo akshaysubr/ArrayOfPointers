@@ -48,7 +48,7 @@ case "$os" in
                 make -j > /dev/null
                 sudo make install > /dev/null
                 echo "Finished installing MPICH"
-                $HOME/MPICH/mpif90 -show
+                $HOME/MPICH/bin/mpif90 -show
                 ;;
             openmpi)
                 sudo apt-get install -y gfortran-6
