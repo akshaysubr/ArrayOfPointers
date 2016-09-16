@@ -28,7 +28,6 @@ install:
   - export CC=mpicc
   - export CXX=mpicxx
   - export FC=mpif90
-  - echo 'Compilers used: '
   - $CC -show
   - $CXX -show
   - $FC -show
