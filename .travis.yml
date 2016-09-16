@@ -6,6 +6,13 @@ dist: trusty
 os:
   - linux
 
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gfortran-6
+
 env:
   - MPI_IMPL=mpich
 
