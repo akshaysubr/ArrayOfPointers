@@ -37,10 +37,18 @@ case "$os" in
                 sudo apt-get install -y gfortran-6 mpich2 libmpich2-3 libmpich2-dev
                 ;;
             mpich|mpich3)
-                sudo apt-get install -y gfortran-6 libcr0 default-jdk hwloc libmpich10 libmpich-dev
-                wget -q http://de.archive.ubuntu.com/ubuntu/pool/universe/m/mpich/mpich_3.0.4-6ubuntu1_amd64.deb
-                sudo dpkg -i ./mpich_3.0.4-6ubuntu1_amd64.deb
+                # sudo apt-get install -y gfortran-6 libcr0 default-jdk hwloc libmpich10 libmpich-dev
+                # wget -q http://de.archive.ubuntu.com/ubuntu/pool/universe/m/mpich/mpich_3.0.4-6ubuntu1_amd64.deb
+                # sudo dpkg -i ./mpich_3.0.4-6ubuntu1_amd64.deb
                 # rm -f ./mpich_3.1-1ubuntu_amd64.deb
+                wget --no-check-certificate http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+                tar -zxf mpich-3.2.tar.gz
+                cd mpich-3.2
+                sh ./configure --prefix=$HOME/MPICH FC=/usr/bin/gfortran-6 > /dev/null
+                make -j > /dev/null
+                sudo make install > /dev/null
+                echo "Finished installing MPICH"
+                $HOME/MPICH/mpif90 -show
                 ;;
             openmpi)
                 sudo apt-get install -y gfortran-6

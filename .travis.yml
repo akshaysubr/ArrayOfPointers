@@ -24,7 +24,7 @@ install:
     if [[ ! -d "build" ]]; then
       mkdir build
     fi
-  - export PATH="$HOME/OpenMPI/bin:$PATH"
+  - export PATH="$HOME/MPICH/bin:$HOME/OpenMPI/bin:$PATH"
   - export CC=mpicc
   - export CXX=mpicxx
   - export FC=mpif90
