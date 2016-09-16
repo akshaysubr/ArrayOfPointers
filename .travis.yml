@@ -14,8 +14,8 @@ before_install:
 
 install:
   - |
-    if [[ ! -d "$HOME/.local/bin" ]]; then
-      mkdir "$HOME/.local/bin"
+    if [[ ! -d "build" ]]; then
+      mkdir build
     fi
   - export PATH="$HOME/OpenMPI/bin:$PATH"
   - export CC=mpicc
