@@ -142,9 +142,9 @@ end module
 
 module routines
 
-    use arrayofpointers
-    use circlemod
-    use squaremod
+    use arrayofpointers, only: container
+    use circlemod, only: circle
+    use squaremod, only: square
     implicit none
 
 contains
@@ -187,10 +187,7 @@ end module
 
 program test_arrayofpointers
 
-    use arrayofpointers
-    use circlemod
-    use squaremod
-    use routines
+    use routines, only: print_shapes
     implicit none
 
     call print_shapes()
